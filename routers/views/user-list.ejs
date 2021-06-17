@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<meta name="Description" content="Enter your description here" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<head>
+    <title>Database Details</title>
+</head>
+<p style="text-align:center;"><img width="350px" height="150px" src="panic.png" /></p>
+<style>
+    th {
+        color: #fff;
+    }
+</style>
+
+<body>
+    <div class="table-data">
+        <h2>Database Details</h2>
+        <table border="1">
+            <tr>
+                <th>I.D</th>
+                <th>First Name</th>
+                <th>Surname</th>
+                <th>Age</th>
+                <th>Email Address</th>
+                <th>Address</th>
+                <th>Cellnumber</th>
+                <th>Emergency</th>
+            </tr>
+
+            <%
+        if(userData.length!=0){
+        var i=1;
+        userData.forEach(function(results){
+        %>
+                <tr>
+                    <td>
+                        <%=i; %>
+                    </td>
+                    <td>
+                        <%=results.firstname %>
+                    </td>
+                    <td>
+                        <%=results.surname %>
+                    </td>
+                    <td>
+                        <%=results.age %>
+                    </td>
+                    <td>
+                        <%=results.address %>
+                    </td>
+                    <td>
+                        <%=results.cellnumber %>
+                    </td>
+                    <td>
+                        <%=results.emergency %>
+                    </td>
+
+                </tr>
+                <%  i++; }) %>
+                    <% } else{ %>
+                        <tr>
+                            <td colspan="8">No Data Found</td>
+                        </tr>
+                        <% } %>
+        </table>
+    </div>
+</body>
+
+</html>
